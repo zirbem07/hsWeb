@@ -1,0 +1,56 @@
+  <md-toolbar class="md-tall md-hue-2" layout="row" layout-align="start center" >
+    <div class="md-toolbar-tools">
+        <h3>
+            <span>Analytics</span>
+        </h3>
+    </div>
+  </md-toolbar>
+  <md-content flex id="content" style="background-color: whitesmoke" ng-init="person = {selectedChart: 'compliance'}">
+      <div layout="row" flex class="md-whiteframe-2dp "  ng-repeat="patient in compiledData | orderBy: 'therapyScore'" style="margin-bottom: 4px; background-color: white">
+        <div flex="20" layout="column" class="md-padding">
+            <span class="md-subhead">{{patient.firstName}} {{patient.lastName}}</span>
+            <span style="color: grey" class="md-caption">Last Active:
+              <ng-pluralize count="{{daysAgo(patient.lastActive)}}" 
+                        when="{'-1': 'Not Activated', '0': 'Today', '1': 'Yesterday', 'other': '{{daysAgo(patient.lastActive)}} Days Ago'}">
+              </ng-pluralize>
+            </span>
+            <span class="md-whiteframe-4dp therapyScore" ng-class="patient.therapyScore >= 80 ? 'highTherapyScore' : (patient.therapyScore < 50 ? 'lowTherapyScore' : '')">{{patient.therapyScore}}%
+              <md-tooltip md-direction="bottom">HEP Compliance</md-tooltip>
+            </span>
+            
+
+        </div>
+        <div flex="15" layout="column">
+            <md-button class="md-raised" aria-label="HEP Compliance" ng-click="patient.selectedChart = 'compliance'" ng-class="patient.selectedChart == 'compliance' ? 'md-raised md-primary' : 'md-raised'" style="color: white;font-size: .8em">
+              HEP Compliance
+            </md-button>
+            <md-button ng-hide="true" class="md-raised" aria-label="Outcome Surveys" ng-click="graphSurvey(patient)" ng-class="patient.selectedChart == 'surveys' ? 'md-raised md-primary' : 'md-raised'" style="font-size: .8em">
+              Outcome Surveys
+            </md-button>
+            <!--<md-button ng-disabled="true" class="md-raised" aria-label="Satasfaction" ng-click="patient.selectedChart = 'satsfaction'" ng-class="patient.selectedChart == 'satsfaction' ? 'md-raised md-primary' : 'md-raised'">
+              Satasfaction
+              <md-tooltip md-direction="bottom">Coming Soon</md-tooltip>
+            </md-button>-->
+        </div>
+        <div layout="column" flex="50">
+          <canvas id="line" class="chart chart-line" chart-data="patient.hepDataPoints"  ng-if="patient.selectedChart == 'compliance'"
+            chart-labels="patient.hepLabels" chart-click="onClick" chart-series="patient.hepSeries" style="height: 100px" height="80px "  chart-colors="colors">
+          </canvas>
+          <h2 ng-if="patient.selectedChart == 'surveys' && !patient.hasSurveys">No Data Found. Assign an outcome survey from patient profile </h2>
+          <canvas id="line" class="chart chart-line" chart-data="patient.surveyDataPoints"  height="80px"  chart-colors="colors"
+            chart-labels="patient.surveyLabels" chart-hover="onHover" chart-series="patient.surveySeries" ng-if="patient.selectedChart == 'surveys'">
+          </canvas>  
+        </div>
+        <div flex="15" layout="column">
+            <!--<md-button class="md-raised md-primary" aria-label="Comment" >
+              Health Bot
+            </md-button>-->
+            <md-button  style="font-size: .8em; color: white" class="md-raised md-primary" aria-label="Message" ng-click="message(patient)" >
+              Message
+            </md-button>
+            <md-button  class="md-raised" style="background-color: #F44336; color: white; font-size: .8em" aria-label="Discharge" ng-click="showDischarge(patient)" >
+              Discharge
+            </md-button>
+        </div>
+    </div>
+  </md-content>

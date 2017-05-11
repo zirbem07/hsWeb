@@ -1,0 +1,22 @@
+<md-dialog  ng-cloak>
+  <md-dialog-content layout="row" style="max-width:800px;max-height:810px;width: 600px; height: 220px">
+      <md-list flex="25"  class="md-whiteframe-4dp" style="margin: 10px 10px 10px 10px">
+          <md-list-item ng-repeat="message in messageOptions" style="padding: 5px 5px">
+              <md-button style="font-size: .8em;" ng-class="selectedMessage.name == message.name ? 'md-raised md-primary white_text' : 'md-raised'" class="md-button" ng-click="selectMessage($index)">{{message.name}}</md-button>
+          </md-list-item>
+      </md-list>
+      <div layout="column" style="padding: 16px 16px 16px 16px">
+        <p ng-if="selectedMessage.message"> Hi {{selectedPatientName}},</p>
+        <p  ng-bind-html="trustHTML(selectedMessage.message)"></p>
+        <span ng-if="selectedMessage.message"> {{providerName}}</span>
+      </div>
+  </md-dialog-content>
+  <md-dialog-actions layout="row">
+     <md-button class="md-primary" ng-click="send()">
+      Send
+    </md-button>
+    <md-button class="md-primary" ng-click="cancel()">
+      Cancel
+    </md-button>
+  </md-dialog-actions>
+</md-dialog>

@@ -1,0 +1,31 @@
+  <md-toolbar class="md-tall md-hue-2" layout="row" layout-align="start center" >
+    <div class="md-toolbar-tools">
+        <h3>
+            <span>Billing</span>
+        </h3>
+    </div>
+  </md-toolbar>
+  <md-content flex id="content" layout='column' style="background-color: whitesmoke">
+      <div layout="column" class="md-whiteframe-2dp md-padding" style="margin-bottom: 4px; background-color: white">
+          <div flex="100">
+            <p style="font-weight: 300; font-size: 26px; line-height: 32px;">Current Plan:</p>
+          </div>
+          <div flex="100" layout="row">
+            <div flex="33">
+              <span style="font-weight: 300; font-size: 22px; line-height: 32px;">Price:</span> &nbsp
+              <span style="font-weight: 300; font-size: 22px; line-height: 32px; color: #03A9F4">$10.00/Month</span>
+              
+            </div>
+            <div flex="33">
+              <span style="font-weight: 300; font-size: 22px; line-height: 32px;">Plan Type:</span> &nbsp
+              <span style="font-weight: 300; font-size: 22px; line-height: 32px; color: #03A9F4">Individual</span>   
+            </div>
+            <div flex="33" layout="row">
+                <span flex=""></span>
+               <md-button  flex="" class="md-raised" style="background-color: #F44336; color: white; font-size: .8em; margin-top: 0px" aria-label="Cancel" ng-click="cancelAccount()" >
+                Cancel Account
+                </md-button>
+            </div>
+          </div>
+      </div>
+  </md-content>

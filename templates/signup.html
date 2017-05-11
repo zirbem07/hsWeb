@@ -1,0 +1,286 @@
+<!-- Begin Inspectlet Embed Code -->
+<script type="text/javascript" id="inspectletjs">
+window.__insp = window.__insp || [];
+__insp.push(['wid', 981663041]);
+(function() {
+function ldinsp(){if(typeof window.__inspld != "undefined") return; window.__inspld = 1; var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = "inspsync"; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); };
+setTimeout(ldinsp, 500); document.readyState != "complete" ? (window.attachEvent ? window.attachEvent('onload', ldinsp) : window.addEventListener('load', ldinsp, false)) : ldinsp();
+})();
+</script>
+<!-- End Inspectlet Embed Code -->
+<md-content flex id="content" style="background-color: whitesmoke; padding: 0px" ng-init="person = {selectedChart: 'compliance'}">
+
+  <div  layout="row" layout-align="start center" style="padding-bottom: 100px; background-color: #0288D1">
+    <div flex>
+        <h3 flex-offset="10"  layout="row">
+            <span flex="" style="margin-left: 12px; font-weight: 300; font-size: 30px; color: white">Individual</span>
+			<div flex="" class="clinic_start_here" style="text-align: right; margin-top: 10px; color: white; font-weight: 300; font-size: 14px">Health Snaps Clinic? <a href="../enterprise.html" style="color: #FFC107; font-weight: 400"> Start Here</a></div>
+			<span flex="10"></span>
+        </h3>
+		<p flex-offset="10" flex="80" style="font-weight: 400; color: white; padding-left: 10px;"> Powerful enough for the clinic, priced for the individual.</p>
+    </div>
+  </div>
+      <div layout="row">
+    
+		<md-card flex="100" flex-offset-gt-xs="10" flex-gt-xs="80" aria-label="Add Edit Billing" class="md-dialog-fullscreen md-content-overflow md-transition-in" role="dialog" tabindex="-1" aria-describedby="dialogContent_3" style="margin-top: -80px" >
+			<form name="billingData" novalidate="" ng-submit="billingData.$valid &amp;&amp; addEditBillingCtrl.submitBilling()" class="ng-invalid ng-invalid-required ng-valid-maxlength ng-dirty ng-valid-parse ng-valid-pattern">
+				
+				<md-card-content class="border-bottom" id="dialogContent_3" style="padding-bottom: 0px">
+					<div class=" modal-container">
+						<div class="row">
+							<div class="col-sm-12">
+								<label>Account Details</label>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group" ng-class="{'has-success': billingData.email.$valid &amp;&amp; billingData.email.$touched, 
+											'has-error': billingData.email.$invalid &amp;&amp; (billingData.$submitted || billingData.email.$touched)}">
+									<input type="text" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="email" ng-blur="sendEmail();" ng-model="addEditBillingCtrl.billingForm.email" placeholder="Email" required="" aria-invalid="true">
+									<div class="text-danger ng-active ng-hide" ng-messages="billingData.email.$error" ng-show="billingData.email.$invalid &amp;&amp; (billingData.$submitted || billingData.email.$touched)" aria-live="assertive" aria-hidden="true">
+										<label>
+											<i class="fa fa-times-circle-o"></i>
+											<!-- ngMessage: required --><span ng-message="required" class="ng-scope">This field is required</span>
+										</label>
+									</div>
+									<div class="text-danger ng-active ng-hide" ng-show="alertEDU" aria-live="assertive" aria-hidden="true">
+										<label>
+											<i class="fa fa-times-circle-o"></i>
+											<!-- ngMessage: required --><span class="ng-scope">Please use a .edu</span>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6 col-xs-6">
+								<div class="form-group">
+									<input type="text" class="form-control ng-pristine ng-untouched ng-empty ng-valid" length="5" name="code" ng-model="addEditBillingCtrl.billingForm.code" placeholder="Coupon Code">
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6 col-xs-6">
+								<div class="form-group" ng-if="addEditBillingCtrl.billingForm.code.toUpperCase() == '1FREE'">
+									<md-icon md-svg-icon="circle_check" style="color: #4CAF50"></md-icon>
+									<span style="color: #4CAF50"> 1 Month Free</span>
+									
+								</div>
+								<div class="form-group" ng-if="addEditBillingCtrl.billingForm.code.toUpperCase() == 'UPWORK'">
+									<md-icon md-svg-icon="circle_check" style="color: #4CAF50"></md-icon>
+									<span style="color: #4CAF50"> 3 Months Free</span>
+									
+								</div>
+								<div class="form-group" ng-if="addEditBillingCtrl.billingForm.code.toUpperCase() == '7NGPT'">
+									<md-icon md-svg-icon="circle_check" style="color: #4CAF50"></md-icon>
+									<span style="color: #4CAF50"> $7 Unlimited Discount</span>
+									
+								</div>
+							</div>	
+						</div>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group" ng-class="{'has-success': billingData.occupation.$valid &amp;&amp; billingData.occupation.$touched, 
+											'has-error': billingData.occupation.$invalid &amp;&amp; (billingData.$submitted || billingData.occupation.$touched)}">
+									<select name="occupation" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" ng-model="addEditBillingCtrl.billingForm.occupation" ng-options="occupation.name as occupation.name for occupation in addEditBillingCtrl.occupations" required="" aria-invalid="true">
+										<option label="" value="">Occupation</option>
+									</select>
+									<div class="text-danger ng-active ng-hide" ng-messages="billingData.occupation.$error" ng-show="billingData.occupation.$invalid &amp;&amp; (billingData.$submitted || billingData.occupation.$touched)" aria-live="assertive" aria-hidden="true">
+										<label>
+											<!-- ngMessage: required --><span ng-message="required" class="ng-scope">This field is required</span>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6 col-xs-6" ng-if="addEditBillingCtrl.billingForm.occupation == 'Other'">
+								<div class="form-group">
+									<input type="text" class="form-control ng-pristine ng-untouched ng-empty ng-valid" name="otherOccupation" ng-model="addEditBillingCtrl.billingForm.otherOccupation" placeholder="Please Specify">
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6 col-xs-6" ng-if="addEditBillingCtrl.billingForm.occupation == 'Student'">
+								<div class="form-group">
+									<select name="gradYear" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" ng-model="addEditBillingCtrl.billingForm.gradYear" ng-options="gradYear.year as gradYear.year for gradYear in addEditBillingCtrl.gradYears" required="" aria-invalid="true">
+										<option label="" value="">Graduation Year</option>
+									</select>								
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12">
+								<label>Billing Details</label>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group" ng-class="{'has-success': billingData.first_name.$valid &amp;&amp; billingData.first_name.$touched, 
+											'has-error': billingData.first_name.$invalid &amp;&amp; (billingData.$submitted || billingData.first_name.$touched)}">
+									<input type="text" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="first_name" ng-model="addEditBillingCtrl.billingForm.firstName" placeholder="First Name" required="" aria-invalid="true">
+									<div class="text-danger ng-active ng-hide" ng-messages="billingData.first_name.$error" ng-show="billingData.first_name.$invalid &amp;&amp; (billingData.$submitted || billingData.first_name.$touched)" aria-live="assertive" aria-hidden="true">
+										<label>
+											<i class="fa fa-times-circle-o"></i>
+											<!-- ngMessage: required --><span ng-message="required" class="ng-scope">This field is required</span>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group" ng-class="{'has-success': billingData.last_name.$valid &amp;&amp; billingData.last_name.$touched, 
+											'has-error': billingData.last_name.$invalid &amp;&amp; (billingData.$submitted || billingData.last_name.$touched)}">
+									<input type="text" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="last_name" ng-model="addEditBillingCtrl.billingForm.lastName" placeholder="Last Name" required="" aria-invalid="true">
+									<div class="text-danger ng-active ng-hide" ng-messages="billingData.last_name.$error" ng-show="billingData.last_name.$invalid &amp;&amp; (billingData.$submitted || billingData.last_name.$touched)" aria-live="assertive" aria-hidden="true">
+										<label>
+											<i class="fa fa-times-circle-o"></i>
+											<!-- ngMessage: required --><span ng-message="required" class="ng-scope">This field is required</span>
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="form-group has-success" ng-class="{'has-success': billingData.cc_number.$valid &amp;&amp; billingData.cc_number.$touched, 
+											'has-error': billingData.cc_number.$invalid &amp;&amp; (billingData.$submitted || billingData.cc_number.$touched)}">
+									<input type="text" class="form-control ng-valid-maxlength ng-dirty ng-valid-parse ng-valid-pattern ng-not-empty ng-valid ng-valid-required ng-touched" name="cc_number" ng-model="addEditBillingCtrl.billingForm.ccNumber" placeholder="Credit Card Number" maxlength="16" pattern="^[0-9]*$" required="" aria-invalid="false">
+									<div class="text-danger ng-hide ng-inactive" ng-messages="billingData.cc_number.$error" ng-show="billingData.cc_number.$invalid &amp;&amp; (billingData.$submitted || billingData.cc_number.$touched)" aria-live="assertive" aria-hidden="true">
+										<label>
+											<i class="fa fa-times-circle-o"></i>
+											<!-- ngMessage: required -->
+											<!-- ngMessage: pattern -->
+											<!-- ngMessage: maxlength -->
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-4">
+								<div class="form-group" ng-class="{'has-success': billingData.cc_month.$valid &amp;&amp; billingData.cc_month.$touched, 
+											'has-error': billingData.cc_month.$invalid &amp;&amp; (billingData.$submitted || billingData.cc_month.$touched)}">
+									<select name="cc_month" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" ng-model="addEditBillingCtrl.billingForm.ccMonth" ng-options="billingMonth.id as billingMonth.name for billingMonth in addEditBillingCtrl.billingMonths" required="" aria-invalid="true"><option style="display:none" value="" class="ng-binding" selected="selected">Exp. Month</option><option label="January" value="string:01">January</option><option label="February" value="string:02">February</option><option label="March" value="string:03">March</option><option label="April" value="string:04">April</option><option label="May" value="string:05">May</option><option label="June" value="string:06">June</option><option label="July" value="string:07">July</option><option label="August" value="string:08">August</option><option label="September" value="string:09">September</option><option label="October" value="string:10">October</option><option label="November" value="string:11">November</option><option label="December" value="string:12">December</option></select>
+									<div class="text-danger ng-active ng-hide" ng-messages="billingData.cc_month.$error" ng-show="billingData.cc_month.$invalid &amp;&amp; (billingData.$submitted || billingData.cc_month.$touched)" aria-live="assertive" aria-hidden="true">
+										<label>
+											<i class="fa fa-times-circle-o"></i>
+											<!-- ngMessage: required --><span ng-message="required" class="ng-scope">This field is required</span>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="form-group" ng-class="{'has-success': billingData.cc_year.$valid &amp;&amp; billingData.cc_year.$touched, 
+											'has-error': billingData.cc_year.$invalid &amp;&amp; (billingData.$submitted || billingData.cc_year.$touched)}">
+									<select id="billing-year" name="cc_year" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" ng-model="addEditBillingCtrl.billingForm.ccYear" ng-options="billingYear as billingYear for billingYear in addEditBillingCtrl.billingYears" required="" aria-invalid="true"><option style="display:none" value="" class="ng-binding" selected="selected">Exp. year</option><option label="2016" value="number:2016">2016</option><option label="2017" value="number:2017">2017</option><option label="2018" value="number:2018">2018</option><option label="2019" value="number:2019">2019</option><option label="2020" value="number:2020">2020</option><option label="2021" value="number:2021">2021</option><option label="2022" value="number:2022">2022</option><option label="2023" value="number:2023">2023</option><option label="2024" value="number:2024">2024</option><option label="2025" value="number:2025">2025</option><option label="2026" value="number:2026">2026</option><option label="2027" value="number:2027">2027</option><option label="2028" value="number:2028">2028</option><option label="2029" value="number:2029">2029</option><option label="2030" value="number:2030">2030</option></select>
+									<div class="text-danger ng-active ng-hide" ng-messages="billingData.cc_year.$error" ng-show="billingData.cc_year.$invalid &amp;&amp; (billingData.$submitted || billingData.cc_year.$touched)" aria-live="assertive" aria-hidden="true">
+										<label>
+											<i class="fa fa-times-circle-o"></i>
+											<!-- ngMessage: required --><span ng-message="required" class="ng-scope">This field is required</span>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="form-group" ng-class="{'has-success': billingData.cvv.$valid &amp;&amp; billingData.cvv.$touched, 
+											'has-error': billingData.cvv.$invalid &amp;&amp; (billingData.$submitted || billingData.cvv.$touched)}">
+									
+									<input maxlength="4" type="text" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength" placeholder="CVV" name="cvv" ng-model="addEditBillingCtrl.billingForm.cvv" required="" aria-invalid="true">
+									<div class="text-danger ng-active ng-hide" ng-messages="billingData.cvv.$error" ng-show="billingData.cvv.$invalid &amp;&amp; (billingData.$submitted || billingData.cvv.$touched)" aria-live="assertive" aria-hidden="true">
+										<label>
+											<i class="fa fa-times-circle-o"></i>
+											<!-- ngMessage: required --><span ng-message="required" class="ng-scope">This field is required</span>
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12">
+								<strong>Billing Address</strong>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group" ng-class="{'has-success': billingData.address1.$valid &amp;&amp; billingData.address1.$touched, 
+											'has-error': billingData.address1.$invalid &amp;&amp; (billingData.$submitted || billingData.address1.$touched)}">
+									<input type="text" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="address1" ng-model="addEditBillingCtrl.billingForm.address1" placeholder="Street Address" required="" aria-invalid="true">
+									<div class="text-danger ng-active ng-hide" ng-messages="billingData.address1.$error" ng-show="billingData.address1.$invalid &amp;&amp; (billingData.$submitted || billingData.address1.$touched)" aria-live="assertive" aria-hidden="true">
+										<label>
+											<!-- ngMessage: required --><span ng-message="required" class="ng-scope">This field is required</span>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group" ng-class="{'has-success': billingData.city.$valid &amp;&amp; billingData.city.$touched, 
+											'has-error': billingData.city.$invalid &amp;&amp; (billingData.$submitted || billingData.city.$touched)}">
+									<input type="text" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="city" ng-model="addEditBillingCtrl.billingForm.city" placeholder="City" required="" aria-invalid="true">
+									<div class="text-danger ng-active ng-hide" ng-messages="billingData.city.$error" ng-show="billingData.city.$invalid &amp;&amp; (billingData.$submitted || billingData.city.$touched)" aria-live="assertive" aria-hidden="true">
+										<label>
+											<!-- ngMessage: required --><span ng-message="required" class="ng-scope">This field is required</span>
+										</label>
+									</div>
+								</div>
+							</div>							
+						</div>
+						<div class="row">				
+							<div class="col-sm-4">
+								<div class="form-group" ng-class="{'has-success': billingData.country.$valid &amp;&amp; billingData.country.$touched, 
+											'has-error': billingData.country.$invalid &amp;&amp; (billingData.$submitted || billingData.country.$touched)}">
+									<select name="country" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" ng-model="addEditBillingCtrl.billingForm.country" ng-options="location.name as location.name for location in addEditBillingCtrl.countries" ng-change="addEditBillingCtrl.stateIsListed = (addEditBillingCtrl.states | filter: {country: addEditBillingCtrl.billingForm.country}).length ? true : false" required="" aria-invalid="true"><option style="display:none" value="" class="" selected="selected">Country</option><option label="Afghanistan" value="string:Afghanistan">Afghanistan</option><option label="Åland Islands" value="string:Åland Islands">Åland Islands</option><option label="Albania" value="string:Albania">Albania</option><option label="Algeria" value="string:Algeria">Algeria</option><option label="American Samoa" value="string:American Samoa">American Samoa</option><option label="AndorrA" value="string:AndorrA">AndorrA</option><option label="Angola" value="string:Angola">Angola</option><option label="Anguilla" value="string:Anguilla">Anguilla</option><option label="Antarctica" value="string:Antarctica">Antarctica</option><option label="Antigua and Barbuda" value="string:Antigua and Barbuda">Antigua and Barbuda</option><option label="Argentina" value="string:Argentina">Argentina</option><option label="Armenia" value="string:Armenia">Armenia</option><option label="Aruba" value="string:Aruba">Aruba</option><option label="Australia" value="string:Australia">Australia</option><option label="Austria" value="string:Austria">Austria</option><option label="Azerbaijan" value="string:Azerbaijan">Azerbaijan</option><option label="Bahamas" value="string:Bahamas">Bahamas</option><option label="Bahrain" value="string:Bahrain">Bahrain</option><option label="Bangladesh" value="string:Bangladesh">Bangladesh</option><option label="Barbados" value="string:Barbados">Barbados</option><option label="Belarus" value="string:Belarus">Belarus</option><option label="Belgium" value="string:Belgium">Belgium</option><option label="Belize" value="string:Belize">Belize</option><option label="Benin" value="string:Benin">Benin</option><option label="Bermuda" value="string:Bermuda">Bermuda</option><option label="Bhutan" value="string:Bhutan">Bhutan</option><option label="Bolivia" value="string:Bolivia">Bolivia</option><option label="Bosnia and Herzegovina" value="string:Bosnia and Herzegovina">Bosnia and Herzegovina</option><option label="Botswana" value="string:Botswana">Botswana</option><option label="Bouvet Island" value="string:Bouvet Island">Bouvet Island</option><option label="Brazil" value="string:Brazil">Brazil</option><option label="British Indian Ocean Territory" value="string:British Indian Ocean Territory">British Indian Ocean Territory</option><option label="Brunei Darussalam" value="string:Brunei Darussalam">Brunei Darussalam</option><option label="Bulgaria" value="string:Bulgaria">Bulgaria</option><option label="Burkina Faso" value="string:Burkina Faso">Burkina Faso</option><option label="Burundi" value="string:Burundi">Burundi</option><option label="Cambodia" value="string:Cambodia">Cambodia</option><option label="Cameroon" value="string:Cameroon">Cameroon</option><option label="Canada" value="string:Canada">Canada</option><option label="Cape Verde" value="string:Cape Verde">Cape Verde</option><option label="Cayman Islands" value="string:Cayman Islands">Cayman Islands</option><option label="Central African Republic" value="string:Central African Republic">Central African Republic</option><option label="Chad" value="string:Chad">Chad</option><option label="Chile" value="string:Chile">Chile</option><option label="China" value="string:China">China</option><option label="Christmas Island" value="string:Christmas Island">Christmas Island</option><option label="Cocos (Keeling) Islands" value="string:Cocos (Keeling) Islands">Cocos (Keeling) Islands</option><option label="Colombia" value="string:Colombia">Colombia</option><option label="Comoros" value="string:Comoros">Comoros</option><option label="Congo" value="string:Congo">Congo</option><option label="Congo, The Democratic Republic of the" value="string:Congo, The Democratic Republic of the">Congo, The Democratic Republic of the</option><option label="Cook Islands" value="string:Cook Islands">Cook Islands</option><option label="Costa Rica" value="string:Costa Rica">Costa Rica</option><option label="Cote D&quot;Ivoire" value="string:Cote D&quot;Ivoire">Cote D"Ivoire</option><option label="Croatia" value="string:Croatia">Croatia</option><option label="Cuba" value="string:Cuba">Cuba</option><option label="Cyprus" value="string:Cyprus">Cyprus</option><option label="Czech Republic" value="string:Czech Republic">Czech Republic</option><option label="Denmark" value="string:Denmark">Denmark</option><option label="Djibouti" value="string:Djibouti">Djibouti</option><option label="Dominica" value="string:Dominica">Dominica</option><option label="Dominican Republic" value="string:Dominican Republic">Dominican Republic</option><option label="Ecuador" value="string:Ecuador">Ecuador</option><option label="Egypt" value="string:Egypt">Egypt</option><option label="El Salvador" value="string:El Salvador">El Salvador</option><option label="Equatorial Guinea" value="string:Equatorial Guinea">Equatorial Guinea</option><option label="Eritrea" value="string:Eritrea">Eritrea</option><option label="Estonia" value="string:Estonia">Estonia</option><option label="Ethiopia" value="string:Ethiopia">Ethiopia</option><option label="Falkland Islands (Malvinas)" value="string:Falkland Islands (Malvinas)">Falkland Islands (Malvinas)</option><option label="Faroe Islands" value="string:Faroe Islands">Faroe Islands</option><option label="Fiji" value="string:Fiji">Fiji</option><option label="Finland" value="string:Finland">Finland</option><option label="France" value="string:France">France</option><option label="French Guiana" value="string:French Guiana">French Guiana</option><option label="French Polynesia" value="string:French Polynesia">French Polynesia</option><option label="French Southern Territories" value="string:French Southern Territories">French Southern Territories</option><option label="Gabon" value="string:Gabon">Gabon</option><option label="Gambia" value="string:Gambia">Gambia</option><option label="Georgia" value="string:Georgia">Georgia</option><option label="Germany" value="string:Germany">Germany</option><option label="Ghana" value="string:Ghana">Ghana</option><option label="Gibraltar" value="string:Gibraltar">Gibraltar</option><option label="Greece" value="string:Greece">Greece</option><option label="Greenland" value="string:Greenland">Greenland</option><option label="Grenada" value="string:Grenada">Grenada</option><option label="Guadeloupe" value="string:Guadeloupe">Guadeloupe</option><option label="Guam" value="string:Guam">Guam</option><option label="Guatemala" value="string:Guatemala">Guatemala</option><option label="Guernsey" value="string:Guernsey">Guernsey</option><option label="Guinea" value="string:Guinea">Guinea</option><option label="Guinea-Bissau" value="string:Guinea-Bissau">Guinea-Bissau</option><option label="Guyana" value="string:Guyana">Guyana</option><option label="Haiti" value="string:Haiti">Haiti</option><option label="Heard Island and Mcdonald Islands" value="string:Heard Island and Mcdonald Islands">Heard Island and Mcdonald Islands</option><option label="Holy See (Vatican City State)" value="string:Holy See (Vatican City State)">Holy See (Vatican City State)</option><option label="Honduras" value="string:Honduras">Honduras</option><option label="Hong Kong" value="string:Hong Kong">Hong Kong</option><option label="Hungary" value="string:Hungary">Hungary</option><option label="Iceland" value="string:Iceland">Iceland</option><option label="India" value="string:India">India</option><option label="Indonesia" value="string:Indonesia">Indonesia</option><option label="Iran, Islamic Republic Of" value="string:Iran, Islamic Republic Of">Iran, Islamic Republic Of</option><option label="Iraq" value="string:Iraq">Iraq</option><option label="Ireland" value="string:Ireland">Ireland</option><option label="Isle of Man" value="string:Isle of Man">Isle of Man</option><option label="Israel" value="string:Israel">Israel</option><option label="Italy" value="string:Italy">Italy</option><option label="Jamaica" value="string:Jamaica">Jamaica</option><option label="Japan" value="string:Japan">Japan</option><option label="Jersey" value="string:Jersey">Jersey</option><option label="Jordan" value="string:Jordan">Jordan</option><option label="Kazakhstan" value="string:Kazakhstan">Kazakhstan</option><option label="Kenya" value="string:Kenya">Kenya</option><option label="Kiribati" value="string:Kiribati">Kiribati</option><option label="Korea, Democratic People&quot;S Republic of" value="string:Korea, Democratic People&quot;S Republic of">Korea, Democratic People"S Republic of</option><option label="Korea, Republic of" value="string:Korea, Republic of">Korea, Republic of</option><option label="Kuwait" value="string:Kuwait">Kuwait</option><option label="Kyrgyzstan" value="string:Kyrgyzstan">Kyrgyzstan</option><option label="Lao People&quot;S Democratic Republic" value="string:Lao People&quot;S Democratic Republic">Lao People"S Democratic Republic</option><option label="Latvia" value="string:Latvia">Latvia</option><option label="Lebanon" value="string:Lebanon">Lebanon</option><option label="Lesotho" value="string:Lesotho">Lesotho</option><option label="Liberia" value="string:Liberia">Liberia</option><option label="Libyan Arab Jamahiriya" value="string:Libyan Arab Jamahiriya">Libyan Arab Jamahiriya</option><option label="Liechtenstein" value="string:Liechtenstein">Liechtenstein</option><option label="Lithuania" value="string:Lithuania">Lithuania</option><option label="Luxembourg" value="string:Luxembourg">Luxembourg</option><option label="Macao" value="string:Macao">Macao</option><option label="Macedonia, The Former Yugoslav Republic of" value="string:Macedonia, The Former Yugoslav Republic of">Macedonia, The Former Yugoslav Republic of</option><option label="Madagascar" value="string:Madagascar">Madagascar</option><option label="Malawi" value="string:Malawi">Malawi</option><option label="Malaysia" value="string:Malaysia">Malaysia</option><option label="Maldives" value="string:Maldives">Maldives</option><option label="Mali" value="string:Mali">Mali</option><option label="Malta" value="string:Malta">Malta</option><option label="Marshall Islands" value="string:Marshall Islands">Marshall Islands</option><option label="Martinique" value="string:Martinique">Martinique</option><option label="Mauritania" value="string:Mauritania">Mauritania</option><option label="Mauritius" value="string:Mauritius">Mauritius</option><option label="Mayotte" value="string:Mayotte">Mayotte</option><option label="Mexico" value="string:Mexico">Mexico</option><option label="Micronesia, Federated States of" value="string:Micronesia, Federated States of">Micronesia, Federated States of</option><option label="Moldova, Republic of" value="string:Moldova, Republic of">Moldova, Republic of</option><option label="Monaco" value="string:Monaco">Monaco</option><option label="Mongolia" value="string:Mongolia">Mongolia</option><option label="Montserrat" value="string:Montserrat">Montserrat</option><option label="Morocco" value="string:Morocco">Morocco</option><option label="Mozambique" value="string:Mozambique">Mozambique</option><option label="Myanmar" value="string:Myanmar">Myanmar</option><option label="Namibia" value="string:Namibia">Namibia</option><option label="Nauru" value="string:Nauru">Nauru</option><option label="Nepal" value="string:Nepal">Nepal</option><option label="Netherlands" value="string:Netherlands">Netherlands</option><option label="Netherlands Antilles" value="string:Netherlands Antilles">Netherlands Antilles</option><option label="New Caledonia" value="string:New Caledonia">New Caledonia</option><option label="New Zealand" value="string:New Zealand">New Zealand</option><option label="Nicaragua" value="string:Nicaragua">Nicaragua</option><option label="Niger" value="string:Niger">Niger</option><option label="Nigeria" value="string:Nigeria">Nigeria</option><option label="Niue" value="string:Niue">Niue</option><option label="Norfolk Island" value="string:Norfolk Island">Norfolk Island</option><option label="Northern Mariana Islands" value="string:Northern Mariana Islands">Northern Mariana Islands</option><option label="Norway" value="string:Norway">Norway</option><option label="Oman" value="string:Oman">Oman</option><option label="Pakistan" value="string:Pakistan">Pakistan</option><option label="Palau" value="string:Palau">Palau</option><option label="Palestinian Territory, Occupied" value="string:Palestinian Territory, Occupied">Palestinian Territory, Occupied</option><option label="Panama" value="string:Panama">Panama</option><option label="Papua New Guinea" value="string:Papua New Guinea">Papua New Guinea</option><option label="Paraguay" value="string:Paraguay">Paraguay</option><option label="Peru" value="string:Peru">Peru</option><option label="Philippines" value="string:Philippines">Philippines</option><option label="Pitcairn" value="string:Pitcairn">Pitcairn</option><option label="Poland" value="string:Poland">Poland</option><option label="Portugal" value="string:Portugal">Portugal</option><option label="Puerto Rico" value="string:Puerto Rico">Puerto Rico</option><option label="Qatar" value="string:Qatar">Qatar</option><option label="Reunion" value="string:Reunion">Reunion</option><option label="Romania" value="string:Romania">Romania</option><option label="Russian Federation" value="string:Russian Federation">Russian Federation</option><option label="RWANDA" value="string:RWANDA">RWANDA</option><option label="Saint Helena" value="string:Saint Helena">Saint Helena</option><option label="Saint Kitts and Nevis" value="string:Saint Kitts and Nevis">Saint Kitts and Nevis</option><option label="Saint Lucia" value="string:Saint Lucia">Saint Lucia</option><option label="Saint Pierre and Miquelon" value="string:Saint Pierre and Miquelon">Saint Pierre and Miquelon</option><option label="Saint Vincent and the Grenadines" value="string:Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option><option label="Samoa" value="string:Samoa">Samoa</option><option label="San Marino" value="string:San Marino">San Marino</option><option label="Sao Tome and Principe" value="string:Sao Tome and Principe">Sao Tome and Principe</option><option label="Saudi Arabia" value="string:Saudi Arabia">Saudi Arabia</option><option label="Senegal" value="string:Senegal">Senegal</option><option label="Serbia and Montenegro" value="string:Serbia and Montenegro">Serbia and Montenegro</option><option label="Seychelles" value="string:Seychelles">Seychelles</option><option label="Sierra Leone" value="string:Sierra Leone">Sierra Leone</option><option label="Singapore" value="string:Singapore">Singapore</option><option label="Slovakia" value="string:Slovakia">Slovakia</option><option label="Slovenia" value="string:Slovenia">Slovenia</option><option label="Solomon Islands" value="string:Solomon Islands">Solomon Islands</option><option label="Somalia" value="string:Somalia">Somalia</option><option label="South Africa" value="string:South Africa">South Africa</option><option label="South Georgia and the South Sandwich Islands" value="string:South Georgia and the South Sandwich Islands">South Georgia and the South Sandwich Islands</option><option label="Spain" value="string:Spain">Spain</option><option label="Sri Lanka" value="string:Sri Lanka">Sri Lanka</option><option label="Sudan" value="string:Sudan">Sudan</option><option label="Suriname" value="string:Suriname">Suriname</option><option label="Svalbard and Jan Mayen" value="string:Svalbard and Jan Mayen">Svalbard and Jan Mayen</option><option label="Swaziland" value="string:Swaziland">Swaziland</option><option label="Sweden" value="string:Sweden">Sweden</option><option label="Switzerland" value="string:Switzerland">Switzerland</option><option label="Syrian Arab Republic" value="string:Syrian Arab Republic">Syrian Arab Republic</option><option label="Taiwan, Province of China" value="string:Taiwan, Province of China">Taiwan, Province of China</option><option label="Tajikistan" value="string:Tajikistan">Tajikistan</option><option label="Tanzania, United Republic of" value="string:Tanzania, United Republic of">Tanzania, United Republic of</option><option label="Thailand" value="string:Thailand">Thailand</option><option label="Timor-Leste" value="string:Timor-Leste">Timor-Leste</option><option label="Togo" value="string:Togo">Togo</option><option label="Tokelau" value="string:Tokelau">Tokelau</option><option label="Tonga" value="string:Tonga">Tonga</option><option label="Trinidad and Tobago" value="string:Trinidad and Tobago">Trinidad and Tobago</option><option label="Tunisia" value="string:Tunisia">Tunisia</option><option label="Turkey" value="string:Turkey">Turkey</option><option label="Turkmenistan" value="string:Turkmenistan">Turkmenistan</option><option label="Turks and Caicos Islands" value="string:Turks and Caicos Islands">Turks and Caicos Islands</option><option label="Tuvalu" value="string:Tuvalu">Tuvalu</option><option label="Uganda" value="string:Uganda">Uganda</option><option label="Ukraine" value="string:Ukraine">Ukraine</option><option label="United Arab Emirates" value="string:United Arab Emirates">United Arab Emirates</option><option label="United Kingdom" value="string:United Kingdom">United Kingdom</option><option label="United States" value="string:United States">United States</option><option label="United States Minor Outlying Islands" value="string:United States Minor Outlying Islands">United States Minor Outlying Islands</option><option label="Uruguay" value="string:Uruguay">Uruguay</option><option label="Uzbekistan" value="string:Uzbekistan">Uzbekistan</option><option label="Vanuatu" value="string:Vanuatu">Vanuatu</option><option label="Venezuela" value="string:Venezuela">Venezuela</option><option label="Viet Nam" value="string:Viet Nam">Viet Nam</option><option label="Virgin Islands, British" value="string:Virgin Islands, British">Virgin Islands, British</option><option label="Virgin Islands, U.S." value="string:Virgin Islands, U.S.">Virgin Islands, U.S.</option><option label="Wallis and Futuna" value="string:Wallis and Futuna">Wallis and Futuna</option><option label="Western Sahara" value="string:Western Sahara">Western Sahara</option><option label="Yemen" value="string:Yemen">Yemen</option><option label="Zambia" value="string:Zambia">Zambia</option><option label="Zimbabwe" value="string:Zimbabwe">Zimbabwe</option></select>
+									<div class="text-danger ng-active ng-hide" ng-messages="billingData.country.$error" ng-show="billingData.country.$invalid &amp;&amp; (billingData.$submitted || billingData.country.$touched)" aria-live="assertive" aria-hidden="true">
+										<label>
+											<!-- ngMessage: required --><span ng-message="required" class="ng-scope">This field is required</span>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="form-group" ng-class="{'has-success': billingData.state.$valid &amp;&amp; billingData.state.$touched, 
+											'has-error': billingData.state.$invalid &amp;&amp; (billingData.$submitted || billingData.state.$touched)}">
+									<!-- ngIf: addEditBillingCtrl.stateIsListed -->
+									<!-- ngIf: !addEditBillingCtrl.stateIsListed --><input ng-if="!addEditBillingCtrl.stateIsListed" type="text" class="form-control ng-pristine ng-untouched ng-scope ng-empty ng-invalid ng-invalid-required" name="state" ng-model="addEditBillingCtrl.billingForm.state" placeholder="State/Province" required="" aria-invalid="true"><!-- end ngIf: !addEditBillingCtrl.stateIsListed -->
+									<div class="text-danger ng-hide ng-active" ng-messages="billingData.state.$error" ng-show="billingData.state.$invalid &amp;&amp; (billingData.$submitted || billingData.state.$touched)" aria-live="assertive" aria-hidden="true">
+										<label>
+											<!-- ngMessage: required --><span ng-message="required" class="ng-scope">This field is required</span>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="form-group" ng-class="{'has-success': billingData.zip.$valid &amp;&amp; billingData.zip.$touched, 
+											'has-error': billingData.zip.$invalid &amp;&amp; (billingData.$submitted || billingData.zip.$touched)}">
+									<input type="text" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength" name="zip" ng-model="addEditBillingCtrl.billingForm.zip" placeholder="Zip Code" maxlength="6" required="" aria-invalid="true">
+									<div class="text-danger ng-active ng-hide" ng-messages="billingData.zip.$error" ng-show="billingData.zip.$invalid &amp;&amp; (billingData.$submitted || billingData.zip.$touched)" aria-live="assertive" aria-hidden="true">
+										<label>
+											<!-- ngMessage: required --><span ng-message="required" class="ng-scope">This field is required</span>
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<button class="md-primary md-raised btn-block no-margin md-button md-ink-ripple" type="submit" aria-label="Add New Card" ng-disabled="addEditBillingCtrl.dummyAccount" style="margin-left: 0px">
+									<!-- ngIf: addEditBillingCtrl.submittingForm -->
+									<!-- ngIf: !addEditBillingCtrl.submittingForm --><span class="text-white center-block ng-scope" ng-if="!addEditBillingCtrl.submittingForm">
+										Sign Up
+									</span><!-- end ngIf: !addEditBillingCtrl.submittingForm -->
+								</button>
+							</div>
+						</div>
+					</div>
+				</md-card-content>
+				<md-card-actions class="grey-bg" style="border-top: 1px solid whitesmoke; background-color: #fafafa">
+					<div layout="row" layout-fill="" layout-padding="" layout-align="center center" class="layout-fill layout-padding layout-align-center-center layout-row">
+						<div layout="row" layout-align="start center" layout-padding="" class="no-padding layout-padding layout-align-start-center layout-row ">
+								<div>
+									<span><i class="fa fa-lock"></i></span>
+								</div>
+								<div>
+									<label class="no-margin" style="margin-bottom: 0px">Secure Payment</label>
+									<div>
+										<small>Protected with SSL Encryption</small>
+									</div>
+								</div>
+						</div>
+						<div flex="auto" layout="row" layout-align="end center" layout-padding="" class="no-padding layout-padding layout-align-end-center layout-row flex-auto">
+							<div >
+								<img src="./img/cards.png">
+							</div>
+						</div>
+					</div>
+				</md-card-actions>
+			</form>
+		</md-dialog>
+	</div>
+</md-content>

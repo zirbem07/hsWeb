@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <title>Health Snaps</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css"/>
+  <link rel="stylesheet" href="css/app.css"/>
+  <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="./bower_components/angular-jk-rating-stars/dist/jk-rating-stars.css">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="../favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="../favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="../favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="../favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="../favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="../favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="../favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+  <link rel="manifest" href="../favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="../favicon/ms-icon-144x144.png">
+
+
+
+  
+  <style type="text/css">
+    /**
+     * Hide when Angular is not yet loaded and initialized
+     */
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+      display: none !important;
+    }
+  </style>
+
+</head>
+
+<body ng-app="admin" layout="column" ng-cloak>
+
+<md-toolbar ng-controller="rootCtrl" ng-if="showMenu" >
+  <div class="md-toolbar-tools">
+    <md-button class="md-icon-button" aria-label="More" ng-click="toggleSideNav()" hide-gt-md ng-show="showMenu">
+      <md-icon md-svg-icon="menu" style="color: white" ></md-icon>
+    </md-button>
+    <h2>
+      <span style="color: #fcfcfc; font-weight: 400">Health Snaps Dashboard</span>
+    </h2>
+    <span flex></span>
+  </div>
+</md-toolbar>
+
+<div layout="row">
+  <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" ng-show="showMenu">
+    <div class="sidenav-header md-padding" layout="column" layout-align="end start">
+      <h3 style="color: white; margin-bottom: 4px; padding-bottom: 0px">Welcome!</h3>
+    </div>
+    <md-list ng-controller="rootCtrl">
+      <md-list-item >
+          <md-listitem-content style="outline: 0;" md-no-ink layout="row" layout-align="start center" ng-click="analytics()">
+            <div class="inset">
+              <md-icon md-svg-icon="bar-chart"></md-icon>
+            </div>
+            <div class="inset">Analytics
+            </div>
+          </md-listitem-content>
+      </md-list-item>
+      <!--<md-list-item >
+          <md-listitem-content style="outline: 0;" md-no-ink layout="row" layout-align="start center">
+            <div class="inset">
+              <md-icon md-svg-icon="film"></md-icon>
+            </div>
+            <div class="inset">Exercise Library
+            </div>
+          </md-listitem-content>
+      </md-list-item>-->
+      <!--<md-list-item >
+          <md-listitem-content style="outline: 0;" md-no-ink layout="row" layout-align="start center" ng-click="market()">
+            <div class="inset">
+              <md-icon md-svg-icon="shop"></md-icon>
+            </div>
+            <div class="inset">Market
+            </div>
+          </md-listitem-content>
+      </md-list-item>-->
+      <md-list-item >
+          <md-listitem-content style="outline: 0;" md-no-ink layout="row" layout-align="start center" ng-click="billing()">
+            <div class="inset">
+              <md-icon md-svg-icon="credit-card"></md-icon>
+            </div>
+            <div class="inset">Billing Info
+            </div>
+          </md-listitem-content>
+      </md-list-item>
+      <md-list-item >
+          <md-listitem-content style="outline: 0;" md-no-ink layout="row" layout-align="start center" ng-click="supportDialog()">
+            <div class="inset">
+              <md-icon md-svg-icon="message"></md-icon>
+            </div>
+            <div class="inset">Support
+            </div>
+          </md-listitem-content>
+      </md-list-item>
+      <md-list-item>
+          <md-listitem-content style="outline: 0;" md-no-ink layout="row" layout-align="start center" ng-click="signOut()">
+            <div class="inset">
+              <md-icon md-svg-icon="logout"></md-icon>
+            </div>
+            <div class="inset">Sign Out
+            </div>
+          </md-listitem-content>
+      </md-list-item>
+      <md-divider></md-divider>
+    </md-list>
+  </md-sidenav>
+
+
+
+  <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
+
+    <md-content>
+      <div ui-view md-theme="default" ></div>
+
+    </md-content>
+
+  </div>
+</div>
+
+
+<script src="./bower_components/angular/angular.js"></script>
+<script src="./bower_components/angular-animate/angular-animate.js"></script>
+<script src="./bower_components/angular-aria/angular-aria.js"></script>
+<script type="text/javascript" src="./bower_components/angular-material/angular-material.js"></script>
+<script src="./bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="./bower_components/angular-messages/angular-messages.js"></script>
+<script src="./bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular-resource.js"></script>
+<script src="./bower_components/chart.js/dist/Chart.min.js"></script>
+<script src="./bower_components/angular-chart.js/dist/angular-chart.min.js"></script>
+<script src="./bower_components/jquery/dist/jquery.js"></script>
+<script src="./bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="./bower_components/DateJS/build/date.js"></script>
+<script src="./bower_components/angular-jk-rating-stars/dist/jk-rating-stars.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+
+<script src="./js/app.js"></script>
+<script src="./js/controllers.js"></script>
+<script src="./js/services.js"></script>
+<script src="./js/filters.js"></script>
+<script src="./js/controllers/loginCtrl.js"></script>
+<script src="./js/controllers/billingCtrl.js"></script>
+<script src="./js/controllers/dashboardCtrl.js"></script>
+<script src="./js/controllers/analyticsCtrl.js"></script>
+<script src="./js/controllers/signUpCtrl.js"></script>
+<script src="./js/services/sessionService.js"></script>
+<script src="./js/services/patientService.js"></script>
+<script src="./js/services/IDService.js"></script>
+<script src="./js/controllers/marketCtrl.js"></script>
+<script src="./js/controllers/marketItemCtrl.js"></script>
+<script src="./js/services/marketService.js"></script>
+<script src="./js/controllers/quickSignupCtrl.js"></script>
+
+  <!-- Facebook Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+  fbq('init', '1348263251851892');
+  fbq('track', "PageView");
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1348263251851892&ev=PageView&noscript=1"
+  /></noscript>
+<!-- End Facebook Pixel Code -->
+
+<!-- Drip -->
+<script type="text/javascript">
+  var _dcq = _dcq || [];
+  var _dcs = _dcs || {};
+  _dcs.account = '3713146';
+
+  (function() {
+    var dc = document.createElement('script');
+    dc.type = 'text/javascript'; dc.async = true;
+    dc.src = '//tag.getdrip.com/3713146.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(dc, s);
+  })();
+</script>
+</body>
+</html>

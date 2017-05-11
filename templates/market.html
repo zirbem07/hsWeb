@@ -1,0 +1,75 @@
+<md-toolbar class=" md-hue-2" layout="row" layout-align="start center" >
+    <div class="md-toolbar-tools">
+        <h3>
+            <span>Market <span style="color: white">(Demo) </span></span>
+        </h3>
+    </div>
+</md-toolbar>
+  <md-content flex style="background-color: whitesmoke">
+      <div layout="row">
+          <md-grid-list
+                md-cols="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="6"
+                md-row-height-gt-md="1:1" md-row-height="4:3"
+                md-gutter="8px" md-gutter-gt-sm="4px" >
+
+                <md-grid-tile ng-repeat="item in marketItems track by $index"
+                        md-rowspan="3" md-colspan="2" md-colspan-sm="1" md-colspan-xs="1">
+                    <md-card ng-click="viewItem(item)" >
+                        <img ng-src="{{item.CoverImg}}" class="md-card-image" alt="Washed Out">
+                        <md-card-title >
+                            <md-card-title-text>
+                                <span class="md-title">{{item.Title}}</span>
+                                <span class="md-subhead">
+                                    <img ng-src="{{item.AuthorIcon}}" style="border-radius: 12px; display: inline-block" width="30px" height="30px">
+                                    <span> By {{item.Author}}</span>
+                                </span>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-content>
+                            <p style="min-height: 60px; max-height: 60px">
+                                {{item.Description}}
+                            </p>
+                            <p layout="row" style="padding-bottom: 0px; margin-bottom: 0px">
+                                <!--<span flex></span>-->
+                                <jk-rating-stars max-rating="5" rating="item.Stars" read-only="true"></jk-rating-stars>
+                                <span  style="font-size: 20px; line-height: 30px">&nbsp ({{item.Ratings}})</span>
+
+                            </p>
+                        
+                            <p layout="row">
+                               <span flex></span>
+                                <span ng-hide="item.Sale" style="font-size: 20px; line-height: 30px">${{item.Price}}</span> 
+                                <span ng-show="item.Sale" style="font-weight: 500; font-size: 20px; line-height: 30px; color: #17AA1C">FREE </span>
+                            </p>
+                        </md-card-content>
+                    </md-card>
+                </md-grid-tile>
+          </md-grid-list>
+        <!--<div layout="column" flex="33" class="md-padding" ng-repeat="item in marketItems track by $index">
+             <md-card ng-click="viewItem()" >
+                <img ng-src="{{item.CoverImg}}" class="md-card-image" alt="Washed Out">
+                <md-card-title >
+                    <md-card-title-text>
+                        <span class="md-title">{{item.Title}}</span>
+                        <span class="md-subhead">
+                            <img ng-src="{{item.AuthorIcon}}" style="border-radius: 12px; display: inline-block" width="30px" height="30px">
+                            <span> By {{item.Author}}</span>
+                        </span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-content>
+                    <p style="min-height: 80px; max-height: 80px">
+                        {{item.Description}}
+                    </p>
+                    <p layout="row">
+                        <jk-rating-stars max-rating="5" rating="item.Stars" read-only="true"></jk-rating-stars>
+                        <span style="font-size: 24px; line-height: 30px">&nbsp ({{item.Ratings}})</span>
+                    </p>
+                    <p>
+                        
+                    </p>
+                </md-card-content>
+            </md-card>
+        </div>           -->
+      </div>
+  </md-content>

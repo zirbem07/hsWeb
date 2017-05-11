@@ -1,0 +1,218 @@
+<md-content flex id="content" style=" padding: 0px" >
+      <!--<div layout="row">-->
+    
+			<!--<div layout="row">-->
+				  <div  layout="row" layout-align="start center" style="padding-bottom: 100px; background-color: #0288D1">
+    <div flex>
+        <h3 flex-offset="10"  layout="row">
+			<div flex="" class="clinic_start_here" style="text-align: right; margin-top: 10px; color: white; font-weight: 300; font-size: 14px">Health Snaps<a href="../#home" style="color: #FFC107; font-weight: 400"> Learn More</a></div>
+			<span flex="10"></span>
+        </h3>
+    </div>
+  </div>
+      <div layout="row">
+    
+		<md-card layout-gt-xs="row" layout="column" flex="100" flex-offset-gt-xs="10" flex-gt-xs="80" aria-label="Add Edit Billing" class="md-dialog-fullscreen md-content-overflow md-transition-in" role="dialog" tabindex="-1" aria-describedby="dialogContent_3" style="margin-top: -80px" >
+			
+				<div ng-if="pageType == 'pt'" flex="50">
+					<img style="max-width: inherit;" src="./img/HealthSnapsBanner.png" flex="100">
+					<p flex="80" flex-offset="10" class="description-content">We’ve all used our patient’s phones to film them completing exercises in the clinic… well now there is an app for that. </p>
+					<p flex="80" flex-offset="10" class="description-content">In a snap, you can securely record and send trackable video home exercise programs throughout patient visits on your own device. </p>
+					<p flex="80" flex-offset="10" class="description-content" >By using Health Snaps, physical therapy clinics can save time, improve outcomes, and even increase revenue by engaging patients outside of the clinic resulting in fewer dropped appointments. </p>
+					<p flex="80" flex-offset="10" class="description-content" >Give your patients the tools they need to succeed and start your FREE trial today!</p>
+				</div>
+				<div ng-if="pageType == 'patient'"  flex="100"  flex-gt-sm="50">
+					<img style="max-width: inherit;" src="./img/HealthSnapsBanner.png" flex="100">
+					<p  class="description-content">We’ve all used our patient’s phones to film them completing exercises in the clinic… well now there is an app for that. </p>
+					<p class="description-content">In a snap, you can securely record and send trackable video home exercise programs throughout patient visits on your own device. </p>
+					<p class="description-content" >With 24/7 access to <b>personalized video instruction</b>, friendly <b>exercise and appointment reminders</b>, plus simple <b>progress tracking</b>, in a way, your patients get to take the clinic home with them. </p>
+					<p  class="description-content" >Give your patients the tools they need to succeed and start your FREE trial today!</p>
+				</div>
+				<div flex="100"  flex-gt-sm="50" ng-if="pageType == 'checklist'">
+					<img style="max-width: inherit;" src="./img/HealthSnapsBanner.png" flex="100">
+					<p  class="description-content">We’ve all used our patient’s phones to film them completing exercises in the clinic… well now there is an app for that. </p>
+					<h3 flex-offset="10">Health Snaps Is...</h3>
+					<ul style="list-style: none;" class="fa-ul">
+						<li><md-icon  style="color: #44B461; margin: 4px 8px" md-svg-icon="check"></md-icon>HIPAA Compliant Video Recording</li>
+						<li><md-icon  style="color: #44B461; margin: 4px 8px" md-svg-icon="check"></md-icon>Real Time Analytics</li>
+						<li><md-icon  style="color: #44B461; margin: 4px 8px" md-svg-icon="check"></md-icon>Build Your Own Video Library</li>
+						<li><md-icon  style="color: #44B461; margin: 4px 8px" md-svg-icon="check"></md-icon>Concierge Patient Onboarding</li>
+						<li><md-icon  style="color: #44B461; margin: 4px 8px" md-svg-icon="check"></md-icon>Automated Appointment and Exercise Reminders</li>
+					</ul>
+					<p 	style="font-size: 18px; text-align: center"> Get started for <b style="color: #44B461">FREE!</b></p>
+					<p style="text-align: center; font-size: 12px">No credit card required.</p>			
+				</div>
+				
+				<form style="padding: 8px" flex="100" flex-gt-sm="50" name="billingData" novalidate="" ng-submit="billingData.$valid &amp;&amp; addEditBillingCtrl.submitBilling()" class="ng-invalid ng-invalid-required ng-valid-maxlength ng-dirty ng-valid-parse ng-valid-pattern">
+					
+					<md-card-content class="border-bottom" id="dialogContent_3" style="padding-bottom: 0px">
+						<div class=" modal-container">
+							<div class="row">
+								<div class="col-sm-12">
+									<label>Get Started</label>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group" ng-class="{'has-success': billingData.email.$valid &amp;&amp; billingData.email.$touched, 
+												'has-error': billingData.email.$invalid &amp;&amp; (billingData.$submitted || billingData.email.$touched)}">
+										<input type="email" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="email" ng-blur="sendEmail();" ng-model="addEditBillingCtrl.billingForm.email" placeholder="Email" required="" aria-invalid="true">
+										<div class="text-danger ng-active ng-hide" ng-messages="billingData.email.$error" ng-show="billingData.email.$invalid &amp;&amp; (billingData.$submitted || billingData.email.$touched)" aria-live="assertive" aria-hidden="true">
+											<label>
+												<i class="fa fa-times-circle-o"></i>
+												<!-- ngMessage: required --><span ng-message="required" class="ng-scope">This field is required</span>
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group" ng-class="{'has-success': billingData.organization.$valid &amp;&amp; billingData.email.$touched, 
+												'has-error': billingData.organization.$invalid &amp;&amp; (billingData.$submitted || billingData.organization.$touched)}">
+										<input type="text" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="organization" ng-model="addEditBillingCtrl.billingForm.organization" placeholder="Organization" required="" aria-invalid="true">
+										<div class="text-danger ng-active ng-hide" ng-messages="billingData.organization.$error" ng-show="billingData.organization.$invalid &amp;&amp; (billingData.$submitted || billingData.organization.$touched)" aria-live="assertive" aria-hidden="true">
+											<label>
+												<i class="fa fa-times-circle-o"></i>
+												<!-- ngMessage: required --><span ng-message="required" class="ng-scope">This field is required</span>
+											</label>
+										</div>
+									</div>
+								</div>
+								<!--<div class="col-md-3 col-sm-6 col-xs-6">
+									<div class="form-group">
+										<input type="text" class="form-control ng-pristine ng-untouched ng-empty ng-valid" length="5" name="code" ng-model="addEditBillingCtrl.billingForm.code" placeholder="Coupon Code">
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-6 col-xs-6">
+									<div class="form-group" ng-if="addEditBillingCtrl.billingForm.code.toUpperCase() == '1FREE'">
+										<md-icon md-svg-icon="circle_check" style="color: #4CAF50"></md-icon>
+										<span style="color: #4CAF50"> 1 Month Free</span>
+										
+									</div>
+									<div class="form-group" ng-if="addEditBillingCtrl.billingForm.code.toUpperCase() == 'UPWORK'">
+										<md-icon md-svg-icon="circle_check" style="color: #4CAF50"></md-icon>
+										<span style="color: #4CAF50"> 3 Months Free</span>
+										
+									</div>
+									<div class="form-group" ng-if="addEditBillingCtrl.billingForm.code.toUpperCase() == 'CSM'">
+										<md-icon md-svg-icon="circle_check" style="color: #4CAF50"></md-icon>
+										<span style="color: #4CAF50">50% off 2 mo.</span>
+										
+									</div>
+								</div>	-->
+							</div>
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="form-group" ng-class="{'has-success': billingData.first_name.$valid &amp;&amp; billingData.first_name.$touched, 
+												'has-error': billingData.first_name.$invalid &amp;&amp; (billingData.$submitted || billingData.first_name.$touched)}">
+										<input type="text" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="first_name" ng-model="addEditBillingCtrl.billingForm.firstName" placeholder="First Name" required="" aria-invalid="true">
+										<div class="text-danger ng-active ng-hide" ng-messages="billingData.first_name.$error" ng-show="billingData.first_name.$invalid &amp;&amp; (billingData.$submitted || billingData.first_name.$touched)" aria-live="assertive" aria-hidden="true">
+											<label>
+												<i class="fa fa-times-circle-o"></i>
+												<!-- ngMessage: required --><span ng-message="required" class="ng-scope">This field is required</span>
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group" ng-class="{'has-success': billingData.last_name.$valid &amp;&amp; billingData.last_name.$touched, 
+												'has-error': billingData.last_name.$invalid &amp;&amp; (billingData.$submitted || billingData.last_name.$touched)}">
+										<input type="text" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="last_name" ng-model="addEditBillingCtrl.billingForm.lastName" placeholder="Last Name" required="" aria-invalid="true">
+										<div class="text-danger ng-active ng-hide" ng-messages="billingData.last_name.$error" ng-show="billingData.last_name.$invalid &amp;&amp; (billingData.$submitted || billingData.last_name.$touched)" aria-live="assertive" aria-hidden="true">
+											<label>
+												<i class="fa fa-times-circle-o"></i>
+												<!-- ngMessage: required --><span ng-message="required" class="ng-scope">This field is required</span>
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="form-group" ng-class="{'has-success': billingData.password.$valid &amp;&amp; billingData.password.$touched, 
+												'has-error': billingData.password.$invalid &amp;&amp; (billingData.$submitted || billingData.password.$touched)}">
+										<input type="password" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="password" ng-model="addEditBillingCtrl.billingForm.password" placeholder="Password" required="" aria-invalid="true">
+										<div class="text-danger ng-active ng-hide" ng-messages="billingData.password.$error" ng-show="billingData.password.$invalid &amp;&amp; (billingData.$submitted || billingData.password.$touched)" aria-live="assertive" aria-hidden="true">
+											<label>
+												<i class="fa fa-times-circle-o"></i>
+												<!-- ngMessage: required --><span ng-message="required" class="ng-scope">This field is required</span>
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group" ng-class="{'has-success': billingData.confPassword.$valid &amp;&amp; billingData.confPassword.$touched, 
+												'has-error': billingData.confPassword.$invalid &amp;&amp; (billingData.$submitted || billingData.confPassword.$touched)}">
+										<input type="password" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="confPassword" ng-model="addEditBillingCtrl.billingForm.confPassword" placeholder="Confirm Password" required="" aria-invalid="true">
+										<div class="text-danger ng-active ng-hide" ng-messages="billingData.confPassword.$error" ng-show="billingData.confPassword.$invalid &amp;&amp; (billingData.$submitted || billingData.confPassword.$touched)" aria-live="assertive" aria-hidden="true">
+											<label>
+												<i class="fa fa-times-circle-o"></i>
+												<!-- ngMessage: required --><span ng-message="required" class="ng-scope">This field is required</span>
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div layout="row" class="md-padding" flex>
+								<md-checkbox
+									ng-model="termsAndPrivacyBox"
+									aria-label="Checkbox 2"
+									ng-true-value="'yup'"
+									ng-false-value="'nope'"
+									ng-click="toggleCheckbox('terms')"
+									class="md-primary " flex-gt-sm="10" flex="20">
+								</md-checkbox>
+								<span>
+									I Agree to Health Connections <a href="http://healthconnection.io/terms-of-service.html" target="_blank">Terms of Service</a> and <a href="http://healthconnection.io/privacy-policy.html" target="_blank">Privacy Policy</a>
+								</span>
+							</div>
+							<div layout="row" class="md-padding" flex>
+								<md-checkbox
+									ng-model="agreeToBAABox"
+									aria-label="Checkbox 2"
+									ng-true-value="'yup'"
+									ng-false-value="'nope'"
+									ng-click="toggleCheckbox('baa')"
+									class="md-primary " flex-gt-sm="10" flex="20">
+									
+								</md-checkbox>
+								<span>
+									I Agree to be bound by the terms of Health Connections <a href="http://healthconnection.io/testPassword/index.html#/justBAA" target="_blank">Business Associate Agreement</a>
+								</span>
+							</div>
+							<div class="row">
+								<div class="col-xs-12">
+									<button class="md-primary md-raised btn-block no-margin md-button md-ink-ripple" type="submit" aria-label="Add New Card" ng-disabled="addEditBillingCtrl.dummyAccount" style="margin-left: 0px">
+										<!-- ngIf: addEditBillingCtrl.submittingForm -->
+										<!-- ngIf: !addEditBillingCtrl.submittingForm --><span class="text-white center-block ng-scope" ng-if="!addEditBillingCtrl.submittingForm">
+											Sign Up
+										</span><!-- end ngIf: !addEditBillingCtrl.submittingForm -->
+									</button>
+								</div>
+							</div>
+						</div>
+					</md-card-content>
+				</form>
+		</md-card>
+			</div>
+	</div>
+</md-content>
+<style>
+
+.description-content {
+	margin: 16px; 
+	text-align: center; 
+	font-size: 16px; 
+	font-weight: 400; 
+	line-height: 24px;
+}
+</style>
+  <!-- Facebook Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+  fbq('init', '1348263251851892');
+  fbq('track', "PageView");
+  fbq('track', 'Lead');
+  </script>

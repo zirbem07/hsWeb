@@ -1,0 +1,32 @@
+<md-content>
+  <md-card flex="80" flex-offset="10" flex-gt-sm="40" flex-offset-gt-sm="30" style="margin-top: 10%">
+    <md-card-title style="background-color: #0288D1; padding-bottom: 10px; color: white">
+      <md-card-title-text>
+        <span class="md-headline">Welcome Back!</span>
+      </md-card-title-text>
+    </md-card-title>
+    <md-card-content style="margin-top: 20px">
+      <form ng-submit="login()">
+        <md-input-container class="form-group" flex="80" flex-offset="10" style="display: block; padding: 0px">
+          <label for="username">Username</label>
+          <input type="text" ng-model="loginData.username" name="username" required="required"/>
+        </md-input-container>
+        <md-input-container class="form-group" flex="80" flex-offset="10" style="display: block; padding: 0px">
+          <label for="password">Password</label>
+          <input type="password" ng-model="loginData.password" name="password" required="required"/>
+        </md-input-container>
+        <div class="form-group" layout="column" layout-align="center end">
+          <!--<a href="#" class="form-recovery pull-right" ng-click="forgotPassword($event)">Forgot Password?</a>-->
+        </div>
+        <div class="form-group">
+          <md-button class="md-button md-raised md-primary" style="color: white; float: right" type="submit">Log In</md-button>
+        </div>
+      </form>
+    </md-card-content>
+  </md-card>
+  <div layout="row">
+    <span flex=""></span>
+    <p style="cursor: pointer; font-size: 22px; color: #03A9F4; font-weight: 300" ng-click="forgotPassword(loginData.username);"> Forgot Password? </p>
+    <span flex=""></span>
+  </div>
+</md-content>
